@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
     return (
         <header className='flex flex-col items-center m-10'>
-            <button className='self-end'>로그인</button>
+            <Link to='login' className='self-end'>로그인</Link>
             <Link to='/' className='text-brand font-bold text-5xl'>STICKareer</Link>
             <nav className='flex md:flex-row items-center md:gap-16 justify-evenly m-10 flex-col gap-2'>
                 <Link to='/info'>공채 / 시험 정보</Link>

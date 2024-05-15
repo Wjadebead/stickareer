@@ -11,6 +11,7 @@ import Community from './pages/Community';
 import Information from './pages/Information';
 import Hashtag from './pages/Hashtag';
 import Mypage from './pages/Mypage';
+import LoginPage from './pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
       {
         path: "mypage",
         element: <Mypage />,
-      }
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
     ]
   },
 ]);
