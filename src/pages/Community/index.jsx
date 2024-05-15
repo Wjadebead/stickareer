@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Post from './post';
+import { useQuery } from '@tanstack/react-query';
+import communityDummy from '../../api/Community/communityDummy';
+import PostLoading from './postLoading';
 
 export default function Community() {
 
@@ -9,6 +12,16 @@ export default function Community() {
         setSearchValue(e.target.value);
     }
 
+    const {isLoading, error, data: posts} = useQuery({
+        queryKey: ['posts', searchValue],
+        queryFn: () => {
+            const community = new communityDummy();
+            return community.communityInit();
+        }
+    }
+    );
+    console.log(posts);
+
     return (
         <>
             <div className='flex flex-col justify-center items-center'>
@@ -17,7 +30,23 @@ export default function Community() {
                     <button className='h-full w-12 border-l border-stone-500'>검색</button>
                 </div>
                 <div className='w-full flex-col justify-center items-center'>
-                    <Post idx={1} title={"글입니다"} date={"2024.05.03"}/>
+                    {
+                        isLoading &&
+                        <>
+                        <PostLoading />
+                        <PostLoading />
+                        <PostLoading />
+                        <PostLoading />
+                        <PostLoading />
+                        </>
+                    }
+                    {
+                        posts &&
+                        posts.map((post => {
+                            return <Post key={post.idx} idx={post.idx} title={post.title} date={post.date}/>
+                    }))
+                    
+                    }
                 </div>
             </div>
         </>
