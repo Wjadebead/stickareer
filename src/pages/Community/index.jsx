@@ -8,6 +8,8 @@ export default function Community() {
 
     const [searchValue, setSearchValue] = useState("");
 
+    const [currentPosts, setCurrentPosts] = useState([]);
+
     const handleSearchInput = (e) => {
         setSearchValue(e.target.value);
     }
@@ -20,7 +22,6 @@ export default function Community() {
         }
     }
     );
-    console.log(posts);
 
     return (
         <>
