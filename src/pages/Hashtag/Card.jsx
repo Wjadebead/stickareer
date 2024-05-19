@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Card({ title, detail }) {
     return (
-        <li className='h-64 border-2 border-black rounded-md flex-col'>
+        <li className='h-64 border-2 border-black rounded-md flex-col hover:bg-gray-100 hover:cursor-pointer transition-all'>
             <div className='mx-auto h-2/5 table'>
                 <h1 className='table-cell align-middle text-center text-4xl truncate'>{title}</h1>
             </div>
