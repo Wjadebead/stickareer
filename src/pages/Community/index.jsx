@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Post from './post';
+import Post from './components/post';
 import { useQuery } from '@tanstack/react-query';
 import communityDummy from '../../api/Community/communityDummy';
-import PostLoading from './postLoading';
+import PostLoading from './components/postLoading';
 import { CiSearch } from "react-icons/ci";
 
 export default function Community() {
@@ -16,7 +16,7 @@ export default function Community() {
     }
 
     const {isLoading, error, data: posts} = useQuery({
-        queryKey: ['posts', searchValue],
+        queryKey: ['posts'],
         queryFn: () => {
             const community = new communityDummy();
             return community.communityInit();
