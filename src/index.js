@@ -7,11 +7,18 @@ import {
 } from "react-router-dom"
 import reportWebVitals from './reportWebVitals';
 import App from './App';
-import Community from './pages/Community';
+
+
 import Information from './pages/Information';
+
 import Hashtag from './pages/Hashtag';
+
 import Mypage from './pages/Mypage';
+
 import LoginPage from './pages/Login';
+import ErrorPage from './pages/ErrorPage';
+import PostPage from './pages/Community/PostPage';
+import Community from './pages/Community';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +36,12 @@ const router = createBrowserRouter([
       {
         path: "community",
         element: <Community />,
+        children:[
+        ]
+      },
+      {
+        path: "post/:postno",
+        element: <PostPage />
       },
       {
         path: "mypage",

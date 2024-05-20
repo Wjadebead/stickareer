@@ -1,14 +1,14 @@
 import axios from "axios";
 
-export default class communityDummy {
+export default class postDummy {
 
     constructor() {
 
     }
 
-    async communityInit() {
+    async postInit(postno) {
         return axios
-        .get(`/data/Community/community.json`)
+        .get(`/data/Community/dummypost.json`)
         .then((res) => res.data);
     }
 }
