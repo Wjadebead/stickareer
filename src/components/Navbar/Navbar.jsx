@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useMatch } from 'react-router-dom';
+import DarkModeButton from './DarkModeButton';
 
 export default function Navbar() {
 
@@ -7,11 +8,12 @@ export default function Navbar() {
     const infoStyle = useMatch('/info') ? "text-brand font-bold" : "";
     const hashtagStyle = useMatch('/hashtag') ? "text-brand font-bold" : "";
     const communityStyle = useMatch('/community') ? "text-brand font-bold" : "";
-    
+
     const mypageStyle = useMatch('/mypage') ? "text-brand font-bold" : "";
 
     return (
-        <header className='flex flex-col items-center m-10'>
+        <header className='title flex flex-col items-center m-10'>
+            <DarkModeButton />
             <Link to='login' className='self-end'>로그인</Link>
             <Link to='/' className='text-brand font-bold text-5xl'>STICKareer</Link>
             <nav className='flex md:flex-row items-center md:gap-16 justify-evenly m-10 flex-col gap-2'>

@@ -4,9 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: '#091C78'
+        brand: 'var(--color-brand)',
+        myborder: 'var(--color-myborder)',
       }
     },
   },
   plugins: [],
+  darkMode: "class",
 }

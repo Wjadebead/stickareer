@@ -46,7 +46,7 @@ export default function Mypage() {
                         <NotificationCard />
                         <BookmarkCard />
                         <PointCard currentPoint={personalData.point} />
-                        <li className='h-64 border-2 border-black rounded-md flex-col'>
+                        <li className='h-64 border-2 border-myborder shadow-lg dark:border-gray-500 rounded-md flex-col'>
                             <div className='mx-auto h-2/5 table'>
                                 <h1 className='table-cell align-middle text-center text-3xl'>회원 탈퇴</h1>
                             </div>

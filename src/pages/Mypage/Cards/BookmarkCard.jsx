@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function BookmarkCard() {
     return (
-        <li className='h-64 border-2 border-black rounded-md flex-col'>
+        <li className='h-64 border-2 border-myborder shadow-lg dark:border-gray-500 rounded-md flex-col'>
             <div className='mx-auto h-2/5 table'>
                 <h1 className='table-cell align-middle text-center text-3xl'>즐겨찾기</h1>
             </div>

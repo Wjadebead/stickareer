@@ -2,14 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+header.title {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard-Regular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @apply flex flex-col items-center;
+}
+
+@layer base {
+
+  :root {
+    --color-brand: #091C78;
+    --color-myborder: #ffffff;
+  }
+
 }
 
 #root {
@@ -19,4 +39,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  @apply transition-colors duration-75;
+}
+
+.dark {
+  background-color: #23272f;
+  color: #e7e7e7;
+  --color-brand: #4979f1;
+  --color-myborder: #838383;
 }

@@ -40,7 +40,7 @@ export default function Information() {
                 options={searchFilter}
                 onChange={setCurrentFilter}
                 defaultValue={currentFilter[0]}
-                className='w-1/2 mb-16'
+                className='w-1/2 mb-16 dark:bg-slate-500 dark:text-black'
                 />
                 <div className='w-full flex-col justify-center items-center'>
                     {
