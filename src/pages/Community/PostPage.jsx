@@ -19,8 +19,8 @@ export default function PostPage() {
     console.log(content);
     return (
         <div>
-            <div>{content.title}</div>
-            <div>{content.content}</div>
+            <div>{content?.title}</div>
+            <div>{content?.content}</div>
         </div>
     );
 }
