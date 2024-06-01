@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useMatch } from 'react-router-dom';
 import DarkModeButton from './DarkModeButton';
+import { useAtom, useAtomValue } from 'jotai';
+import { authAtom } from '../../stores/Login/auth';
 
 export default function Navbar() {
 
@@ -8,14 +10,27 @@ export default function Navbar() {
     const infoStyle = useMatch('/info') ? "text-brand font-bold" : "";
     const hashtagStyle = useMatch('/hashtag') ? "text-brand font-bold" : "";
     const communityStyle = useMatch('/community') ? "text-brand font-bold" : "";
-
     const mypageStyle = useMatch('/mypage') ? "text-brand font-bold" : "";
 
+    //jotai atom으로 로그인 상태를 받아옴
+    const auth = useAtomValue(authAtom);
+    const [isLoggedIn, setIsLoggedIn] = useAtom(authAtom);
+
+    //로그아웃 로직 ( 임시 )
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+    }
+
     return (
-        <header className='title flex flex-col items-center m-10'>
+        <header className='flex flex-col items-center m-10'>
             <DarkModeButton />
-            <Link to='login' className='self-end'>로그인</Link>
-            <Link to='/' className='text-brand font-bold text-5xl'>STICKareer</Link>
+            {
+                auth ? 
+                <button className='self-end' onClick={handleLogout}>로그아웃</button>
+                :
+                <Link to='login' className='self-end'>로그인</Link>
+            }
+            <Link to='/' className='text-brand font-bold text-5xl'><h1 className='title'>STICKareer</h1></Link>
             <nav className='flex md:flex-row items-center md:gap-16 justify-evenly m-10 flex-col gap-2'>
                 <Link to='/info'>
                     <div className={`${infoStyle}`}>공채 / 시험 정보</div>

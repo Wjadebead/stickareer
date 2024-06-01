@@ -13,7 +13,7 @@ export default function DarkModeButton() {
 
     return (
         <button
-        className='rounded-full shadow-md w-10 h-10 self-start flex justify-center items-center transition-all dark:bg-slate-700'
+        className='rounded-full shadow-md w-10 h-10 self-start flex justify-center items-center transition-all hover:bg-sky-200 dark:bg-slate-700 dark:hover:bg-slate-500'
         onClick={toggleDarkMode}
         >
             {darkMode ? <RiMoonFill color='white' /> : <CgSun />}
