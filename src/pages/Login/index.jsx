@@ -12,7 +12,7 @@ export default function LoginPage() {
 
     const [testLogin, setTestLogin] = useAtom(authAtom);
     const handleTestLogin = () => {
-        setTestLogin(true);
+        setTestLogin("myID");
         
     }
 

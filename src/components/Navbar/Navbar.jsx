@@ -18,7 +18,7 @@ export default function Navbar() {
 
     //로그아웃 로직 ( 임시 )
     const handleLogout = () => {
-        setIsLoggedIn(false);
+        setIsLoggedIn(null);
     }
 
     return (

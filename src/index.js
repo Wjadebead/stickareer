@@ -19,6 +19,8 @@ import LoginPage from './pages/Login';
 import ErrorPage from './pages/ErrorPage';
 import PostPage from './pages/Community/PostPage';
 import Community from './pages/Community';
+import AuthLayout from './components/AuthLayouts/AuthLayout';
+import PublicLayout from './components/AuthLayouts/PublicLayout';
 
 const router = createBrowserRouter([
   {
@@ -35,26 +37,41 @@ const router = createBrowserRouter([
       },
       {
         path: "community",
-        element: <Community />,
         children:[
+          {
+            index: true,
+            element: <Community />,
+          },
+          {
+            path: "post/:postno",
+            element: <PostPage />
+          },
+          
         ]
       },
       {
-        path: "post/:postno",
-        element: <PostPage />
-      },
-      {
         path: "mypage",
-        element: <Mypage />,
         children:[
           {
-            path: "personal"
+            index: true,
+            element: (
+              <AuthLayout>
+                <Mypage />
+              </AuthLayout>
+          ),
+          },
+          {
+            path: "personal",
           }
         ]
       },
       {
         path: "login",
-        element: <LoginPage />,
+        element: (
+          <PublicLayout>
+            <LoginPage />
+          </PublicLayout>
+      ),
       },
     ]
   },
