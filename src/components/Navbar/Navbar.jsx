@@ -30,7 +30,9 @@ export default function Navbar() {
                 :
                 <Link to='login' className='self-end'>로그인</Link>
             }
-            <Link to='/' className='text-brand font-bold text-5xl'><h1 className='title'>STICKareer</h1></Link>
+            <Link to='/' className='text-brand font-bold text-5xl'>
+                <h1 className='title'>STICKareer</h1>
+            </Link>
             <nav className='flex md:flex-row items-center md:gap-16 justify-evenly m-10 flex-col gap-2'>
                 <Link to='/info'>
                     <div className={`${infoStyle}`}>공채 / 시험 정보</div>
