@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MainIcon from '../assets/imgs/mainIcon.png';
-import BoxDataService from '../../api/HomePage/BoxDataService.js'
+import BoxDataService from '../api/HomePage/BoxDataService.js'
 
 const HomePage = () => {
   const [boxData, setBoxData] = useState([]);

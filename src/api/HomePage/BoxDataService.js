@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default class BoxDataService {
 
@@ -7,7 +7,7 @@ export default class BoxDataService {
 
     async getBoxData() {
         return axios
-            .get('data/HomePage/boxData.json')
+            .get(`data/HomePage/boxData.json`)
             .then((res) => res.data);
     }
 }
