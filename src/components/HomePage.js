@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MainIcon from '../assets/imgs/mainIcon.png';
+import BoxDataService from '../../api/HomePage/BoxDataService.js'
 
 const HomePage = () => {
+  const [boxData, setBoxData] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0); // 현재 보이는 박스의 인덱스
+
+  useEffect(() => {
+    const fetchBoxData = async () => {
+      const service = new BoxDataService();
+      const data = await service.getBoxData();
+      setBoxData(data);
+    };
+
+    fetchBoxData();
+  }, []);
+
+  const showPreviousBox = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? boxData.length - 1 : prevIndex - 1));
+  };
+
+  const showNextBox = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === boxData.length - 1 ? 0 : prevIndex + 1));
+  };
+
   return (
     <div>
       <section className="container mx-auto px-6 py-16">
@@ -38,35 +60,24 @@ const HomePage = () => {
 
       <section className="container mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center">테마로 모아보기</h2>
+        {boxData.length > 1 && (
+          <div className="flex justify-end mt-4">
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg mr-2" onClick={showPreviousBox}>←</button>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg" onClick={showNextBox}>→</button>
+          </div>
+        )}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-            <div className="bg-gray-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <i className="fas fa-briefcase text-2xl text-blue-600"></i>
+        {boxData.map((box, index) => (
+            <div key={index} className={`box`} style={{ display: index === currentIndex ? 'block' : 'none' }}>
+              <div className="bg-gray-100 p-6 rounded-lg shadow-md text-center">
+                <div className="bg-gray-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <i className={`fas ${box.icon} text-2xl text-blue-600`}></i>
+                </div>
+                <h3 className="text-xl font-bold">{box.title}</h3>
+                <p className="text-gray-500">{box.description}</p>
+              </div>
             </div>
-            <h3 className="text-xl font-bold">이번 달 모집 마감 채용 공고</h3>
-            <p className="text-gray-500">0 open positions</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-            <div className="bg-gray-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <i className="fas fa-hammer text-2xl text-blue-600"></i>
-            </div>
-            <h3 className="text-xl font-bold">신입 채용 공고</h3>
-            <p className="text-gray-500">0 open positions</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-            <div className="bg-gray-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <i className="fas fa-headset text-2xl text-blue-600"></i>
-            </div>
-            <h3 className="text-xl font-bold">재택 근무 채용 공고</h3>
-            <p className="text-gray-500">0 open positions</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-            <div className="bg-gray-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-              <i className="fas fa-chart-line text-2xl text-blue-600"></i>
-            </div>
-            <h3 className="text-xl font-bold">100억 이상 투자 유치 기업 채용 공고</h3>
-            <p className="text-gray-500">0 open positions</p>
-          </div>
+          ))}
         </div>
       </section>
 
