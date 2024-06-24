@@ -79,7 +79,7 @@ const router = createBrowserRouter([
       },
     ]
   },
-]);
+], {basename: "https://wjadebead.github.io/stickareer/"});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
