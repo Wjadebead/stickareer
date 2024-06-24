@@ -5,6 +5,7 @@ import BoxDataService from '../api/HomePage/BoxDataService.js'
 const HomePage = () => {
   const [boxData, setBoxData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0); // 현재 보이는 박스의 인덱스
+  const boxesPerPage = 4; // 한 페이지에 보일 박스 수
 
   useEffect(() => {
     const fetchBoxData = async () => {
@@ -16,13 +17,23 @@ const HomePage = () => {
     fetchBoxData();
   }, []);
 
-  const showPreviousBox = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? boxData.length - 1 : prevIndex - 1));
+  const showPreviousPage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + boxData.length) % boxData.length);
   };
 
-  const showNextBox = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === boxData.length - 1 ? 0 : prevIndex + 1));
+  const showNextPage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % boxData.length);
   };
+  
+  const getDisplayedBoxes = () => {
+    const endIndex = currentIndex + boxesPerPage;
+    if (endIndex > boxData.length) {
+      return [...boxData.slice(currentIndex, boxData.length), ...boxData.slice(0, endIndex - boxData.length)];
+    }
+    return boxData.slice(currentIndex, endIndex);
+  };
+
+  const displayedBoxes = getDisplayedBoxes();
 
   return (
     <div>
@@ -60,15 +71,15 @@ const HomePage = () => {
 
       <section className="container mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center">테마로 모아보기</h2>
-        {boxData.length > 1 && (
+        {boxData.length > boxesPerPage && (
           <div className="flex justify-end mt-4">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg mr-2" onClick={showPreviousBox}>←</button>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg" onClick={showNextBox}>→</button>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg mr-2" onClick={showPreviousPage}>←</button>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg" onClick={showNextPage}>→</button>
           </div>
         )}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
-        {boxData.map((box, index) => (
-            <div key={index} className={`box`} style={{ display: index === currentIndex ? 'block' : 'none' }}>
+          {displayedBoxes.map((box, index) => (
+            <div key={index} className="box">
               <div className="bg-gray-100 p-6 rounded-lg shadow-md text-center">
                 <div className="bg-gray-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <i className={`fas ${box.icon} text-2xl text-blue-600`}></i>
