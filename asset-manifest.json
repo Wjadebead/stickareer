@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/stickareer/static/css/main.25c1bc8e.css",
-    "main.js": "/stickareer/static/js/main.6868ffd9.js",
+    "main.js": "/stickareer/static/js/main.b4a4602c.js",
     "static/js/453.a169c1ff.chunk.js": "/stickareer/static/js/453.a169c1ff.chunk.js",
     "static/media/mainIcon.png": "/stickareer/static/media/mainIcon.d7cc9e8d06b323a6e34e.png",
     "index.html": "/stickareer/index.html",
     "main.25c1bc8e.css.map": "/stickareer/static/css/main.25c1bc8e.css.map",
-    "main.6868ffd9.js.map": "/stickareer/static/js/main.6868ffd9.js.map",
+    "main.b4a4602c.js.map": "/stickareer/static/js/main.b4a4602c.js.map",
     "453.a169c1ff.chunk.js.map": "/stickareer/static/js/453.a169c1ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.25c1bc8e.css",
-    "static/js/main.6868ffd9.js"
+    "static/js/main.b4a4602c.js"
   ]
 }
