@@ -8,7 +8,7 @@ import {
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 
-
+import HomePage from './components/HomePage';
 import Information from './pages/Information';
 
 import Hashtag from './pages/Hashtag';
@@ -27,6 +27,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
       {
         path: "info",
         element: <Information />,
