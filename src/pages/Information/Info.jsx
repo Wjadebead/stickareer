@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import { RiCloseLargeFill } from "react-icons/ri";
 
 
 Modal.setAppElement('#root');
@@ -19,16 +20,17 @@ export default function Info({idx, title, detail, type, startDate, endDate}) {
           left: 0,
         },
         content: {
-          width: "360px",
-          height: "180px",
+          width: "70vw",
+          height: "20rem",
           zIndex: 150,
           position: "absolute",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          borderRadius: "0.5rem",
+          borderRadius: "0.7rem",
           boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
           backgroundColor: "white",
+          color: "black",
           justifyContent: "center",
           overflow: "auto",
         },
@@ -41,7 +43,7 @@ export default function Info({idx, title, detail, type, startDate, endDate}) {
     const closeModal = () => {
         setIsOpen(false);
     }
-
+//모달 관련
 
     return (
         <>
@@ -62,9 +64,23 @@ export default function Info({idx, title, detail, type, startDate, endDate}) {
                 style={customModalStyles}
                 shouldCloseOnOverlayClick={true}
                 shouldCloseOnEsc={true}
+                className="flex flex-col p-3 items-center justify-center"
             >
-                <button onClick={closeModal}>X</button>
-                hihi
+                <div className='h-1 self-end'>
+                    <button className='' onClick={closeModal}><RiCloseLargeFill size='2rem' /></button>
+                </div>
+                <div className='h-full text-center m-2'>
+                    <h1 className='text-4xl'>{title}</h1>
+                    <h2>{type}</h2>
+                    <ul>
+                        {detail.map((d) => {
+                            return <li>{d}</li>
+                        })}
+                    </ul>
+                    <p>{startDate}</p>
+                    ~
+                    <p>{endDate}</p>
+                </div>
             </Modal>
         </>
     );

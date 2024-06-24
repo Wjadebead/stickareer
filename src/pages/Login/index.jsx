@@ -1,7 +1,7 @@
 import React from 'react';
 import KakaoImg from '../../assets/imgs/kakao_login.png';
 import { useAtom } from 'jotai';
-import { authAtom } from '../../stores/Login/auth';
+import { authAtom, nickNameAtom } from '../../stores/Login/auth';
 import { Navigate } from 'react-router-dom';
 
 export default function LoginPage() {
@@ -11,6 +11,7 @@ export default function LoginPage() {
     }
 
     const [testLogin, setTestLogin] = useAtom(authAtom);
+
     const handleTestLogin = () => {
         setTestLogin("myID");
         
