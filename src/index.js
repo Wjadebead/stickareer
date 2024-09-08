@@ -21,6 +21,7 @@ import PostPage from './pages/Community/PostPage';
 import Community from './pages/Community';
 import AuthLayout from './components/AuthLayouts/AuthLayout';
 import PublicLayout from './components/AuthLayouts/PublicLayout';
+import KakaoLogin from './pages/Login/KakaoLogin';
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,14 @@ const router = createBrowserRouter([
         element: (
           <PublicLayout>
             <LoginPage />
+          </PublicLayout>
+      ),
+      },
+      {
+        path: "auth/kakao",
+        element: (
+          <PublicLayout>
+            <KakaoLogin />
           </PublicLayout>
       ),
       },
