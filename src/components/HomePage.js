@@ -92,7 +92,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="container mx-auto px-6 py-16 bg-white">
+      <section className="container mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center">주목할 만한 채용 공고</h2>
         <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="bg-gray-100 p-6 rounded-lg shadow-md">
