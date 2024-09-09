@@ -26,7 +26,10 @@ export default function Navbar() {
             <DarkModeButton />
             {
                 auth ? 
-                <button className='self-end' onClick={handleLogout}>로그아웃</button>
+                <div className='self-end'>
+                    {auth} 회원님
+                    <button className='mx-5' onClick={handleLogout}>로그아웃</button>
+                </div>
                 :
                 <Link to='login' className='self-end'>로그인</Link>
             }

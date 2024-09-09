@@ -22,6 +22,7 @@ import Community from './pages/Community';
 import AuthLayout from './components/AuthLayouts/AuthLayout';
 import PublicLayout from './components/AuthLayouts/PublicLayout';
 import KakaoLogin from './pages/Login/KakaoLogin';
+import NewPost from './pages/Community/NewPost';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,13 @@ const router = createBrowserRouter([
           {
             path: "post/:postno",
             element: <PostPage />
+          },
+          {
+            path: "newpost",
+            element: 
+            <AuthLayout>
+              <NewPost />
+            </AuthLayout>
           },
           
         ]

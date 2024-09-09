@@ -45,7 +45,7 @@ export default function Mypage() {
                 {
                     personalData &&
                     <>
-                        <PersonalCard id={personalData.id} name={personalData.name} group={personalData.group} />
+                        <PersonalCard id={personalData.id} name={loginInfo} group={personalData.group} />
                         <InterestCard />
                         <NotificationCard />
                         <BookmarkCard />
