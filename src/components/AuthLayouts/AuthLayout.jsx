@@ -11,7 +11,7 @@ export default function AuthLayout({ children }) {
 
     useEffect(() => {
         if (user === null) {
-            alert("로그인이 필요한 메뉴입니다.")
+            alert("로그인이 필요한 항목입니다.")
             navigate('/login', { state: pathname, replace: true });
         }
     }, [navigate, user]);
