@@ -38,7 +38,7 @@ const HomePage = () => {
   return (
     <div>
       <section className="container mx-auto px-6 py-16">
-        <div className="bg-blue-600 text-white p-10 rounded-lg flex flex-col md:flex-row items-center">
+        <div className="bg-brand text-white p-10 rounded-lg flex flex-col md:flex-row items-center">
           <div className="md:w-2/3 mb-10 md:mb-0">
             <h1 className="text-4xl font-bold">Find the perfect job for you</h1>
             <p className="mt-4">12,800개의 직업 공고를 통해 당신의 커리어 가능성을 찾아보세요</p>
@@ -73,18 +73,18 @@ const HomePage = () => {
         <h2 className="text-3xl font-bold text-center">테마로 모아보기</h2>
         {boxData.length > boxesPerPage && (
           <div className="flex justify-end mt-4">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg mr-2" onClick={showPreviousPage}>←</button>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg" onClick={showNextPage}>→</button>
+            <button className="bg-brand text-white px-4 py-2 rounded-lg mr-2" onClick={showPreviousPage}>←</button>
+            <button className="bg-brand text-white px-4 py-2 rounded-lg" onClick={showNextPage}>→</button>
           </div>
         )}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
           {displayedBoxes.map((box, index) => (
             <div key={index} className="box">
-              <div className="bg-gray-100 p-6 rounded-lg shadow-md text-center">
-                <div className="bg-gray-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <i className={`fas ${box.icon} text-2xl text-blue-600`}></i>
+              <div className="bg-gray-100 p-6 rounded-lg shadow-md text-center h-50">
+                <div className="bg-white p-4 rounded-lg h-32 mx-auto mb-4 flex items-center justify-center">
+                  {/* <i className={`fas ${box.icon} text-2xl text-blue-600`}></i> */}
                 </div>
-                <h3 className="text-xl font-bold">{box.title}</h3>
+                <h3 className="text-black font-bold text-[1.2vw] whitespace-nowrap">{box.title}</h3>
                 <p className="text-gray-500">{box.description}</p>
               </div>
             </div>
