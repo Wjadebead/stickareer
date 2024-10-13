@@ -7,8 +7,13 @@ import InterestCard from './Cards/InterestCard';
 import NotificationCard from './Cards/NotificationCard';
 import BookmarkCard from './Cards/BookmarkCard';
 import CardLoading from '../Hashtag/CardLoading';
+import { useAtomValue } from 'jotai';
+import { authAtom, userNameAtom } from '../../stores/Login/auth';
 
 export default function Mypage() {
+
+    const loginInfo = useAtomValue(authAtom);
+    const userName = useAtomValue(userNameAtom);
     
     const {isLoading, error, data: personalData} = useQuery({
         queryKey: ['personalData'],
@@ -22,7 +27,7 @@ export default function Mypage() {
     return (
         <div className='max-w-7xl mx-auto'>
             <div className='md:flex flex-row items-center md:justify-between mb-10 border rounded-3xl border-stone-500'>
-                <h1 className='text-2xl font-medium m-3 p-2 '>{personalData?.nickname} 회원님</h1>
+                <h1 className='text-2xl font-medium m-3 p-2 '>{userName} 회원님</h1>
             </div>
             <ul className='grid grid-cols-1 md:grid-cols-3 gap-4 p-4'>
                 {isLoading && 
@@ -41,7 +46,7 @@ export default function Mypage() {
                 {
                     personalData &&
                     <>
-                        <PersonalCard nickname={personalData.nickname} name={personalData.name} group={personalData.group} />
+                        <PersonalCard id={personalData.id} name={loginInfo} group={personalData.group} />
                         <InterestCard />
                         <NotificationCard />
                         <BookmarkCard />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PersonalCard({ nickname, name, group }) {
+export default function PersonalCard({ id, name, group }) {
     return (
         <li className='h-64 border-2 border-myborder shadow-lg dark:border-gray-500 rounded-md flex-col'>
             <div className='mx-auto h-2/5 table'>
@@ -15,7 +15,7 @@ export default function PersonalCard({ nickname, name, group }) {
                         <h2 className='text-center'>{name}</h2>
                     </div>
                     <div className='mx-auto my-3 px-3 rounded-md bg-gray-100 dark:bg-slate-600'>
-                        <h2 className='text-center'>{nickname}</h2>
+                        <h2 className='text-center'>{id}</h2>
                     </div>
                     <div className='mx-auto my-3 px-3 rounded-md bg-gray-100 dark:bg-slate-600'>
                         <h2 className='text-center'>{group}</h2>

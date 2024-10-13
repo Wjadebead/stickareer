@@ -3,11 +3,16 @@ import Post from './components/post';
 import { useQuery } from '@tanstack/react-query';
 import communityDummy from '../../api/Community/communityDummy';
 import PostLoading from './components/postLoading';
+import { useAtom, useAtomValue } from 'jotai';
+import { authAtom } from '../../stores/Login/auth';
 import { CiSearch } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
 export default function Community() {
 
     const [searchValue, setSearchValue] = useState("");
+
+    const loginInfo = useAtomValue(authAtom);
 
     const [currentPosts, setCurrentPosts] = useState([]);
 
@@ -50,6 +55,15 @@ export default function Community() {
                     
                     }
                 </div>
+                {
+                    loginInfo ? 
+                    <>
+                    <Link to='/community/newpost'>글쓰기</Link>
+                    </>
+                    :
+                    <>
+                    </>
+                }
             </div>
         </>
     );
