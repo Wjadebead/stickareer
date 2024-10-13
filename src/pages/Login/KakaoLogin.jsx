@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai';
 import React, { useEffect } from 'react';
-import { authAtom } from '../../stores/Login/auth';
+import { authAtom, userNameAtom } from '../../stores/Login/auth';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,8 @@ export default function KakaoLogin() {
 
     const navigate = useNavigate();
 
-    const [testLogin, setTestLogin] = useAtom(authAtom);
+    const [userId, setUserId] = useAtom(authAtom);
+    const [userName, setUserName] = useAtom(userNameAtom)
 
     const params = new URL(document.URL).searchParams;
     const code = params.get('code');
@@ -45,8 +46,10 @@ export default function KakaoLogin() {
           )
           .then(res => {
             console.log("2번쨰", res);
+            console.log(res.data.id);            
             console.log(res.data.properties.nickname);
-            setTestLogin(res.data.properties.nickname);
+            setUserId(res.data.id)
+            setUserName(res.data.properties.nickname);
             navigate('/');
           })
       })

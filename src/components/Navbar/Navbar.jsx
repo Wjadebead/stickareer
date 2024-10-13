@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useMatch } from 'react-router-dom';
 import DarkModeButton from './DarkModeButton';
 import { useAtom, useAtomValue } from 'jotai';
-import { authAtom } from '../../stores/Login/auth';
+import { authAtom, userNameAtom } from '../../stores/Login/auth';
 
 export default function Navbar() {
 
@@ -15,10 +15,12 @@ export default function Navbar() {
     //jotai atom으로 로그인 상태를 받아옴
     const auth = useAtomValue(authAtom);
     const [isLoggedIn, setIsLoggedIn] = useAtom(authAtom);
+    const [userName, setUserName] = useAtom(userNameAtom);
 
     //로그아웃 로직 ( 임시 )
     const handleLogout = () => {
         setIsLoggedIn(null);
+        setUserName(null);
     }
 
     return (
@@ -27,7 +29,7 @@ export default function Navbar() {
             {
                 auth ? 
                 <div className='self-end'>
-                    {auth} 회원님
+                    {userName} 회원님
                     <button className='mx-5' onClick={handleLogout}>로그아웃</button>
                 </div>
                 :

@@ -4,13 +4,13 @@ import hashtagDummy from './../../api/Hashtag/hashtagDummy';
 import { useQuery } from '@tanstack/react-query';
 import CardLoading from './CardLoading';
 import { useAtomValue } from 'jotai';
-import { authAtom } from '../../stores/Login/auth';
+import { authAtom, userNameAtom } from '../../stores/Login/auth';
 
 export default function Hashtag() {
 
     const [interest, setInterest] = useState([]);
 
-    const loginInfo = useAtomValue(authAtom);
+    const userName = useAtomValue(userNameAtom);
     
     const {isLoading, error, data: hashtags} = useQuery({
         queryKey: ['hashtags', interest],
@@ -22,7 +22,7 @@ export default function Hashtag() {
     );
 
     useEffect(() => {
-        if (loginInfo === null){
+        if (userName === null){
 
         }
     })
@@ -31,11 +31,11 @@ export default function Hashtag() {
         <div className='max-w-7xl mx-auto'>
             <div className='md:flex flex-row items-center md:justify-between mb-10 border rounded-3xl border-stone-500'>
                 {
-                loginInfo === null ? 
+                userName === null ? 
                 (<h1 className='text-2xl font-medium m-3 p-2 '>맞춤 공고를 확인하시려면 로그인해주세요</h1>)
                 :
                 (<>
-                <h1 className='text-2xl font-medium m-3 p-2 '>{loginInfo} 회원님의 관심사에 기반한 맞춤 공고에요</h1>
+                <h1 className='text-2xl font-medium m-3 p-2 '>{userName} 회원님의 관심사에 기반한 맞춤 공고에요</h1>
                 <button className='m-4'>관심사 설정</button>
                 </>)
                 }
