@@ -23,6 +23,8 @@ import AuthLayout from './components/AuthLayouts/AuthLayout';
 import PublicLayout from './components/AuthLayouts/PublicLayout';
 import KakaoLogin from './pages/Login/KakaoLogin';
 import NewPost from './pages/Community/NewPost';
+import WithdrawalPage from './pages/Mypage/pages/WithdrawalPage';
+import JoinPage from './pages/Mypage/pages/JoinPage';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,20 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "join",
+        children:[
+          {
+            index: true,
+            element: (
+              <JoinPage />
+          ),
+          },
+          {
+            path: "personal",
+          },
+        ]
       },
       {
         path: "info",
@@ -75,6 +91,14 @@ const router = createBrowserRouter([
           },
           {
             path: "personal",
+          },
+          {
+            path: "withdrawal",
+            element:(
+              <AuthLayout>
+                <WithdrawalPage />
+              </AuthLayout>
+            )
           }
         ]
       },
