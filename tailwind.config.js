@@ -9,7 +9,8 @@ module.exports = {
           '50': 'rgba(var(--color-brand-rgb), 0.3)', // 50% 투명도
         },
         myborder: 'var(--color-myborder)',
-        customGray: '#838383'
+        customGray: '#838383',
+        customBlue: '#0455b0'
       },
     },
   },

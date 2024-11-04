@@ -68,7 +68,7 @@ const ResumeList = () => {
                         className="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition"
                     >
                         <div className="flex justify-between items-start">
-                            <span className="font-semibold text-sm text-brand bg-brand-50 dark:bg-brand dark:text-white px-2 py-1 rounded">
+                            <span className="font-semibold text-sm text-customBlue bg-gray-300 dark:bg-customBlue dark:text-white px-2 py-1 rounded">
                                 기본 이력서
                             </span>
                             <button className="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100">
