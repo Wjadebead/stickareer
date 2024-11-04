@@ -4,9 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: 'var(--color-brand)',
+        brand: {
+          DEFAULT: 'var(--color-brand)', // 기본 brand 색상
+          '50': 'rgba(var(--color-brand-rgb), 0.3)', // 50% 투명도
+        },
         myborder: 'var(--color-myborder)',
-      }
+        customGray: '#838383'
+      },
     },
   },
   plugins: [],
