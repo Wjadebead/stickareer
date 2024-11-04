@@ -25,6 +25,7 @@ import KakaoLogin from './pages/Login/KakaoLogin';
 import NewPost from './pages/Community/NewPost';
 import WithdrawalPage from './pages/Mypage/pages/WithdrawalPage';
 import JoinPage from './pages/Mypage/pages/JoinPage';
+import Interests from './pages/Mypage/pages/JoinPage/Interests';
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,8 @@ const router = createBrowserRouter([
           ),
           },
           {
-            path: "personal",
+            path: "interests",
+            element: <Interests />
           },
         ]
       },

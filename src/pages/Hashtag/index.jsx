@@ -5,6 +5,8 @@ import { useQuery } from '@tanstack/react-query';
 import CardLoading from './CardLoading';
 import { useAtomValue } from 'jotai';
 import { authAtom, userNameAtom } from '../../stores/Login/auth';
+import { selectedCompanyAtom, selectedLanguagesAtom } from '../../stores/user';
+import { Link } from 'react-router-dom';
 
 export default function Hashtag() {
 
@@ -36,7 +38,7 @@ export default function Hashtag() {
                 :
                 (<>
                 <h1 className='text-2xl font-medium m-3 p-2 '>{userName} 회원님의 관심사에 기반한 맞춤 공고에요</h1>
-                <button className='m-4'>관심사 설정</button>
+                <Link to='/join/interests' className='m-4'>관심사 설정</Link>
                 </>)
                 }
             </div>
