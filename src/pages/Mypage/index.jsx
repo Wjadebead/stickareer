@@ -9,6 +9,7 @@ import BookmarkCard from './Cards/BookmarkCard';
 import CardLoading from '../Hashtag/CardLoading';
 import { useAtomValue } from 'jotai';
 import { authAtom, userNameAtom } from '../../stores/Login/auth';
+import { Link } from 'react-router-dom';
 
 export default function Mypage() {
 
@@ -51,6 +52,7 @@ export default function Mypage() {
                         <NotificationCard />
                         <BookmarkCard />
                         <PointCard currentPoint={personalData.point} />
+                        <Link to='withdrawal'>
                         <li className='h-64 border-2 border-myborder shadow-lg dark:border-gray-500 rounded-md flex-col'>
                             <div className='mx-auto h-2/5 table'>
                                 <h1 className='table-cell align-middle text-center text-3xl'>회원 탈퇴</h1>
@@ -69,6 +71,7 @@ export default function Mypage() {
                                 </div>
                             </div>
                         </li>
+                        </Link>
                     </>
                 }
             </ul>

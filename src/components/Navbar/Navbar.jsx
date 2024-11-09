@@ -7,6 +7,7 @@ import { authAtom, userNameAtom } from '../../stores/Login/auth';
 export default function Navbar() {
 
     //활성화 여부를 위해 useMatch로 현재 경로 확인
+
     const infoStyle = useMatch('/info') ? "text-brand font-bold" : "";
     const hashtagStyle = useMatch('/hashtag') ? "text-brand font-bold" : "";
     const resumeStyle = useMatch('/resumes') ? "text-brand font-bold" : "";
@@ -39,7 +40,7 @@ export default function Navbar() {
             <Link to='/' className='text-brand font-bold text-5xl'>
                 <h1 className='title'>STICKareer</h1>
             </Link>
-            <nav className='flex md:flex-row items-center md:gap-16 justify-evenly m-10 flex-col gap-2'>
+            <nav className='flex xl:flex-row items-center md:gap-16 justify-evenly m-10 flex-col gap-2'>
                 <Link to='/info'>
                     <div className={`${infoStyle}`}>공채 / 시험 정보</div>
                 </Link>
