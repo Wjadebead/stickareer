@@ -13,6 +13,9 @@ import Information from './pages/Information';
 
 import Hashtag from './pages/Hashtag';
 
+import Resumes from './pages/Resumes';
+import CreateResumes from './pages/Resumes/CreateResumes';
+
 import Mypage from './pages/Mypage';
 
 import LoginPage from './pages/Login';
@@ -119,6 +122,22 @@ const router = createBrowserRouter([
             <KakaoLogin />
           </PublicLayout>
       ),
+      },
+      {
+        path: "resumes",
+        children: [
+          {
+            index: true,
+            element: 
+            <AuthLayout>
+              <Resumes />
+            </AuthLayout>
+          },
+          {
+            path: "create",
+            element: <CreateResumes />
+          }
+        ]
       },
     ]
   },

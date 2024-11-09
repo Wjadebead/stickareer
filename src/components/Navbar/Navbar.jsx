@@ -7,10 +7,12 @@ import { authAtom, userNameAtom } from '../../stores/Login/auth';
 export default function Navbar() {
 
     //활성화 여부를 위해 useMatch로 현재 경로 확인
-    const infoStyle = useMatch('/info') ? "text-brand font-bold" : "hover:text-sky-500";
-    const hashtagStyle = useMatch('/hashtag') ? "text-brand font-bold" : "hover:text-sky-500";
-    const communityStyle = useMatch('/community/*') ? "text-brand font-bold" : "hover:text-sky-500";
-    const mypageStyle = useMatch('/mypage') ? "text-brand font-bold" : "hover:text-sky-500";
+
+    const infoStyle = useMatch('/info') ? "text-brand font-bold" : "";
+    const hashtagStyle = useMatch('/hashtag') ? "text-brand font-bold" : "";
+    const resumeStyle = useMatch('/resumes') ? "text-brand font-bold" : "";
+    const communityStyle = useMatch('/community') ? "text-brand font-bold" : "";
+    const mypageStyle = useMatch('/mypage') ? "text-brand font-bold" : "";
 
     //jotai atom으로 로그인 상태를 받아옴
     const auth = useAtomValue(authAtom);
@@ -44,6 +46,9 @@ export default function Navbar() {
                 </Link>
                 <Link to='/hashtag'>
                     <div className={`${hashtagStyle}`}>해시태그</div>
+                </Link>
+                <Link to='/resumes'>
+                    <div className={`${resumeStyle}`}>이력서</div>
                 </Link>
                 <Link to='/community'>
                     <div className={`${communityStyle}`}>커뮤니티</div>

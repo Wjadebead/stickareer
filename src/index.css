@@ -27,6 +27,7 @@ body {
 
   :root {
     --color-brand: #091C78;
+    --color-brand-rgb: 9, 28, 120;
     --color-myborder: #ffffff;
   }
 
@@ -49,5 +50,6 @@ code {
   background-color: #23272f;
   color: #e7e7e7;
   --color-brand: #4979f1;
+  --color-brand-rgb: 73, 121, 241;
   --color-myborder: #838383;
 }
