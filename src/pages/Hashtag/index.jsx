@@ -13,21 +13,32 @@ export default function Hashtag() {
     const [interest, setInterest] = useState([]);
 
     const userName = useAtomValue(userNameAtom);
-    
+    const selectedCompanies = useAtomValue(selectedCompanyAtom);
+    const selectedLanguages = useAtomValue(selectedLanguagesAtom);
+
     const {isLoading, error, data: hashtags} = useQuery({
         queryKey: ['hashtags', interest],
         queryFn: () => {
             const hashtag = new hashtagDummy();
             return hashtag.hashtagInit();
         }
-    }
-    );
+    });
 
     useEffect(() => {
         if (userName === null){
 
         }
-    })
+    });
+
+    // 필터링된 정보를 반환하는 함수
+    const filteredHashtags = () => {
+        if (!hashtags) return [];
+        return hashtags.filter(hashtag => {
+            const companyMatch = selectedCompanies.length === 0 || selectedCompanies.some(company => hashtag.detail.includes(company));
+            const languageMatch = selectedLanguages.length === 0 || selectedLanguages.some(language => hashtag.detail.includes(language));
+            return companyMatch && languageMatch;
+        });
+    };
 
     return (
         <div className='max-w-7xl mx-auto'>
@@ -57,7 +68,7 @@ export default function Hashtag() {
                 </>
                 }
                 {
-                    hashtags && hashtags.map(hashtag => {
+                    filteredHashtags().map(hashtag => {
                         return <Card key={hashtag.id} title={hashtag.title} detail={hashtag.detail} />
                     })
                 }
@@ -65,4 +76,3 @@ export default function Hashtag() {
         </div>
     );
 }
-
