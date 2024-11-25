@@ -28,12 +28,16 @@ export default function Information() {
         setSearchValue(e.target.value);
     };
 
-    // 필터링된 정보를 반환하는 함수
+    // 필터링된 정보를 반환하는 함수, 백엔드 검색로직 추가시 변경 필요
     const filteredInformations = () => {
-        if (currentFilter.value === "default") {
-            return informations;
-        }
-        return informations.filter(info => info.type === currentFilter.label);
+        if (!informations) return [];
+        
+        // 필터링 조건: 타입과 제목
+        return informations.filter(info => {
+            const typeMatch = currentFilter.value === "default" || info.type === currentFilter.label;
+            const titleMatch = searchValue === "" || info.title.toLowerCase().includes(searchValue.toLowerCase());
+            return typeMatch && titleMatch;
+        });
     };
 
     return (
